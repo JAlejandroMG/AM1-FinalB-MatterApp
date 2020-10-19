@@ -3,15 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--LINKS REF STYLES CSS & BOOTSTRAP-->
+  <link rel="stylesheet" href="../css/style.css">
+   <!--CDN LIBRARY BOOTSTRAP-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+   <!--LIBRARY CDN FONTAWESOME ICONS-->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <title>MatApp - Registration</title>
 </head>
 
-
-
 <body>
-  <h1 class="text-center m-3">MatApp - Registration</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 form-container">
+        <!--COLUMN #1 -->
+        <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+          <h2 class="title-form">Register Here!</h2>
+          <!--FORM REGISTER-->
+          <form>
+            <div class="form-input">
+              <input type="text" name="" placeholder="Complete Name" required>
+            </div>
+            <div class="form-input">
+              <input type="email" name="" placeholder="Email Address" required>
+            </div>
+            <div class="form-input">
+              <input type="password" name="" placeholder="Create Password" required>
+            </div>
+
+            <div class="form-input">
+              <input type="password" name="" placeholder="Confirm Password" required>
+            </div>
+
+            <div class="form-submit">
+              <input type="submit" name="" value="Sign Up!">
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <!--COLUMN #2-->
+      <div class=" col-lg-6 col-md-6 d-none d-md-block image-container"> 
+        <h1 class="text-center m-3">MatApp - Register</h1>
+      </div>
+      
+    </div>
+
+  </div>
+
   
   <script type="module" src="./js/main.js"></script>
+   <!--LIBRARY SCRIPTS BOOTSTRAP-->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 </body>
 </html>
