@@ -1,5 +1,14 @@
+/*UNIVERSAL*/
 * {
     scroll-behavior: smooth;
+}
+
+/*LOGO NAV*/
+
+.navbar-brand {
+    font-family: Oxygen, sans-serif;
+    font-weight: 600;
+    color: #026A8F;
 }
 
 /*HERO HOME*/
@@ -95,6 +104,29 @@
 .imgBx3 img{
     width: 90%;
     height: 500px;
+    margin-bottom: 50px;
 
 }
 
+.imgBx4 img {
+    width: 100%;
+    height: 730px;
+    margin-top: 50px;
+}
+
+/*Box headerText Title*/
+
+.headerText {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.placeBx-4 {
+    margin-bottom: 30px;
+}
+
+footer {
+    background: #026A8F;
+    color: #aaa;
+    padding:30px;
+  }
