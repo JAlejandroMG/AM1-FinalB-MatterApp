@@ -25,6 +25,7 @@ if(loging) {
 // 63 - sandbox.dummy-testing1@yahoo.com
 // 88 - clozano@ejemplo.com - Carlos Lozano
 // 91 - clozano1@ejemplo.com - Carlos1
+// 162 - clozano2@ejemplo.com - Carlos2 Lozano2
 
 const postLogin = (userLogin) => {
   fetch(`${baseURL}${login}`, {
@@ -44,7 +45,7 @@ const postLogin = (userLogin) => {
     .then(data => showLogin(data))
 
   const showLogin = (data) => {
-    sessionStorage.setItem('authenticated', JSON.stringify({name: data.name, email: data.email}));
+    sessionStorage.setItem('authenticated', JSON.stringify({id: data.id, name: data.name, email: data.email}));
     location.replace('../index.html');
   };
 };
