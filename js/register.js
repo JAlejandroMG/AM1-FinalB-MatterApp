@@ -39,11 +39,6 @@ if(register) {
 }
 
 
-// 63 - sandbox.dummy-testing1@yahoo.com
-// 88 - clozano@ejemplo.com - Carlos Lozano
-// 91 - clozano1@ejemplo.com - Carlos1
-
-
 const postRegister = (userRegister) => {
   fetch(`${baseURL}${users}`, {
     method: `POST`,
