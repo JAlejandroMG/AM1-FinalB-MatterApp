@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 /*UNIVERSAL*/
+=======
+>>>>>>> a5b7760b85eb87254b25c7ce2e06db0ae3c8095f
 * {
     scroll-behavior: smooth;
 }
 
+<<<<<<< HEAD
 /*LOGO NAV*/
 
 .navbar-brand {
@@ -11,6 +15,8 @@
     color: #026A8F;
 }
 
+=======
+>>>>>>> a5b7760b85eb87254b25c7ce2e06db0ae3c8095f
 /*HERO HOME*/
 
 .banner {
@@ -104,6 +110,7 @@
 .imgBx3 img{
     width: 90%;
     height: 500px;
+<<<<<<< HEAD
     margin-bottom: 50px;
 
 }
@@ -130,3 +137,8 @@ footer {
     color: #aaa;
     padding:30px;
   }
+=======
+
+}
+
+>>>>>>> a5b7760b85eb87254b25c7ce2e06db0ae3c8095f
