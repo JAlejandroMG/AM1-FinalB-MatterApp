@@ -11,16 +11,16 @@ let status;
 //@----------------------- Ends: Parámetros Endpoints -----------------------@//
 
 
-
-document.getElementById('login').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const userLogin = {email: email, password: password};
-  postLogin(userLogin);
-})
-
-//! login.js:15 Uncaught TypeError: Cannot read property 'addEventListener' of null at login.js:15
+const loging = document.getElementById('loging');
+if(loging) {
+  loging.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const userLogin = {email: email, password: password};
+    postLogin(userLogin);
+  })
+}
 
 // 63 - sandbox.dummy-testing1@yahoo.com
 // 88 - clozano@ejemplo.com - Carlos Lozano
@@ -35,13 +35,15 @@ const postLogin = (userLogin) => {
     .then(response => {
       status = response.status;
       // console.log(`POST login status: ${status}`);
-      if(status !== 200) {document.getElementById('login').reset()};
+      if(status === 401) {
+        alert(`Tu email o password son incorrectos. Vuelve a intentar!!`);
+        document.getElementById('loging').reset()
+      };
       return response.json();
     })
     .then(data => showLogin(data))
 
   const showLogin = (data) => {
-    // console.log(data);
     sessionStorage.setItem('authenticated', JSON.stringify({name: data.name, email: data.email}));
     location.replace('../index.html');
   };

@@ -20,40 +20,39 @@
         <!--COLUMN #1 -->
         <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
           <h2 class="title-form">Register Here!</h2>
-          <!--FORM REGISTER-->
-          <form>
-            <div class="form-input">
-              <input type="text" name="" placeholder="Complete Name" required>
-            </div>
-            <div class="form-input">
-              <input type="email" name="" placeholder="Email Address" required>
-            </div>
-            <div class="form-input">
-              <input type="password" name="" placeholder="Create Password" required>
-            </div>
 
+          <!--FORM REGISTER-->
+          <form id="register">
             <div class="form-input">
-              <input type="password" name="" placeholder="Confirm Password" required>
+              <input id="name" type="text" placeholder="Complete Name" required>
+            </div>
+            <div class="form-input">
+              <input id="email" type="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-input">
+              <input id="password" onkeyup="check()" type="password" placeholder="Create Password" required>
+            </div>
+            <span id="message"></span>
+            <div class="form-input">
+              <input id="password-confirmation" onkeyup="check()" type="password" placeholder="Confirm Password" required>
             </div>
 
             <div class="form-submit">
-              <input type="submit" name="" value="Sign Up!">
+              <input type="submit" value="Sign Up!">
             </div>
-
           </form>
         </div>
       </div>
+
       <!--COLUMN #2-->
       <div class=" col-lg-6 col-md-6 d-none d-md-block image-container"> 
         <h1 class="text-center m-3">MatApp - Register</h1>
-      </div>
-      
+      </div>      
     </div>
-
   </div>
-
   
-  <script type="module" src="./js/main.js"></script>
+  <script src="../js/register.js"></script>
+  <!-- <script type="module" src="./js/main.js"></script> -->
    <!--LIBRARY SCRIPTS BOOTSTRAP-->
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 </body>
