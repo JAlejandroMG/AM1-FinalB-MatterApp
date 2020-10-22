@@ -23,7 +23,6 @@
 }
 
 
-
 /*HEADER CONTAINER MATAPP*/
 .text-center{
     font-weight: bold;
@@ -37,7 +36,19 @@
     height: 100vh;
 }
 
-/*=========FORM SIGN UP= & SIGN IN============*/
+.img-rounded {
+    height: 100%;
+    width: 80%;
+    margin-bottom: 71px;
+}
+
+/*========BODY PROFILE============*/
+
+.body-profile{
+    background: -webkit-linear-gradient(left, #138496, #00c6ff);
+}
+
+/*=========FORM SIGN UP & SIGN IN============*/
 .form-container {
 
     background-color:#026A8F;
