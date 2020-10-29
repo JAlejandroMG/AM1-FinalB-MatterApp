@@ -1,5 +1,5 @@
 export default class InviteUsers {
-  inviteUsers(id, email) {
+  sendInvitation(id, email) {
     const urlInvite = `https://matter-app.herokuapp.com/api/v1/users/${id}/invite`;
     const headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
     const userInvited = {email: email};

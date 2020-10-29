@@ -1,31 +1,31 @@
-//@ Import
+//(---------------------------- Starts: Settings ----------------------------)//
+//+ Import
 import InviteUsers from './InviteUsers.js';
-import GetInvitationsToAnswer from './GetInvitationsToAnswer.js';
-//@ Instance
-const invite = new InviteUsers();
-const getInvitationsToAnswer = new GetInvitationsToAnswer;
-//@ Usuario
-const id = JSON.parse(sessionStorage.getItem('authenticated')).id;
+import InvitationsReceived from './InvitationsReceived.js';
+//+ Instance
+const inviteUsers = new InviteUsers();
+const invitationsReceived = new InvitationsReceived;
+//+ User
+const idUser = JSON.parse(sessionStorage.getItem('authenticated')).id;
 const name = JSON.parse(sessionStorage.getItem('authenticated')).name;
 const email = JSON.parse(sessionStorage.getItem('authenticated')).email;
-// console.log(id, name, email);
+//)----------------------------- Ends: Settings -----------------------------(//
 
 
-//@--------------- Starts: Para invitar a que nos den Feedback --------------@//
 
-/* document.getElementById('invite').addEventListener('submit', (event) => {
+//<------------------ Starts: Invitar a que me den Feedback ----------------->//
+document.getElementById('invite').addEventListener('submit', (event) => {
   event.preventDefault();
   emailInvite = document.getElementById('email').value;
-  invite.inviteUsers(id, emailInvite);
-}) */
-//! LISTO
+  inviteUsers.sendInvitation(id, emailInvite);
+})
+//>------------------- Ends: Invitar a que me den Feedback ------------------<//
 
-//&---------------- Ends: Para invitar a que nos den Feedback ---------------&//
+//<------------- Starts: Ver skills pendientes por dar feedback ------------->//
+invitationsReceived.getInvitations(idUser);
+//>-------------- Ends: Ver skills pendientes por dar feedback --------------<//
 
-  
 
-//@---------- Starts: Veo invitaciones recibidas para dar Feedback ----------@//
 
-getInvitationsToAnswer.getInvitationsToAnswer(id);
-
-//&----------- Ends: Veo invitaciones recibidas para dar Feedback -----------&//
+//(------------------------- Starts: GlobalFunctions ------------------------)//
+//)-------------------------- Ends: GlobalFunctions -------------------------(//
