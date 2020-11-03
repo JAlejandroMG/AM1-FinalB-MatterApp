@@ -1,9 +1,9 @@
-//(---------------------------- Starts: Settings ----------------------------)//
+//[---------------------------- Starts: Settings ----------------------------]//
 //+ Import
 import InvitationsFeedback from './InvitationsFeedback.js';
 //+ Instance
 const invitationsFeedback = new InvitationsFeedback;
-//)----------------------------- Ends: Settings -----------------------------(//
+//]----------------------------- Ends: Settings -----------------------------[//
 
 
 
