@@ -1,53 +1,51 @@
-//(---------------------------- Starts: Settings ----------------------------)//
+//[---------------------------- Starts: Settings ----------------------------]//
 //+ Import
 import SkillsFeedbackLeft from './SkillsFeedbackLeft.js';
 //+ Instance
 const skillsFeedbackLeft = new SkillsFeedbackLeft;
-//)----------------------------- Ends: Settings -----------------------------(//
+//]----------------------------- Ends: Settings -----------------------------[//
 
 
 
 export default class InvitationsFeedback {
-  async getInvitationsFeedback(invitations, totalSkills, option) {
-    const invitationsFeedbackInitial = [];
-          console.log(invitations); //! Console!!!
-          console.log('Empezamos'); //! CONSOLE
-    const invitationsFeedback = await this.invitationsFeedback(invitations, 0, invitationsFeedbackInitial);
-    console.log(invitationsFeedback);
-          console.log('Terminamos'); //! CONSOLE
-    // if(option === 1) {
-    //   // console.log(invitations);
-    //   console.log(invitationsFeedback)
-    //   skillsFeedbackLeft.getSkillsFeedbackLeft(invitationsFeedback, invitations, totalSkills);
-    // };
+  getInvitationsFeedback(invitations, totalSkills, option) {
+    const invitationsArray = [];
+    invitations.forEach((invitation) => {
+      invitationsArray.push(invitation.invitation_id)
+    });
+    const ids = invitationsArray.reverse();
+
+    const idsLength = invitations.length
+    const invitationsFeedback = [];
+
+    this.getFeedback(ids, idsLength, invitationsFeedback, invitations, totalSkills, option);
   };
 
 
-  invitationsFeedback(invitations, index, invitationsFeedback) {
-    return new Promise((resolve, reject) => {    
-      if(index < invitations.length) {
-        const urlGetFeedbackReceived = `https://matter-app.herokuapp.com/api/v1/invitations/${invitations[index].invitation_id}/feedback`;
-        const getHeaders = {'Accept': 'application/json'};
-        fetch(urlGetFeedbackReceived, {
-          headers: getHeaders
-        })
-          .then(response => {
-            status = response.status;
-            return response.json();
-          })
-          .then(data => {
-                  // console.log(data); //! CONSOLE
+  getFeedback(ids, idsLength, invitationsFeedback, invitations, totalSkills, option) {
+    if(ids.length) {
+      const currentId = ids.pop();
+      this.request(currentId)
+          .then((data) => { 
             invitationsFeedback.push(data);
-                  // console.log(invitationsFeedback); //! CONSOLE
-            index++
-            this.invitationsFeedback(invitations, index, invitationsFeedback);
+            this.getFeedback(ids, idsLength, invitationsFeedback,invitations, totalSkills, option);
+            if(invitationsFeedback.length === idsLength) {
+              if(option === 1) {
+                skillsFeedbackLeft.getSkillsFeedbackLeft(invitationsFeedback, invitations, totalSkills);
+              };
+            };
           })
-      } else {
-              console.log('Aquí ando...'); //! CONSOLE
-              console.log(invitationsFeedback);
-        resolve(invitationsFeedback);
-              console.log('Y hasta acá llegué!'); //! CONSOLE
-      };
+    }
+  }
+  
+  
+  request(id) {
+    const urlGetFeedbackReceived = `https://matter-app.herokuapp.com/api/v1/invitations/${id}/feedback`;
+    return new Promise((resolve, reject) => {
+        fetch(urlGetFeedbackReceived)
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(error => console.log(error, 'error in fetch'))
     })
-  };
+  }
 };
